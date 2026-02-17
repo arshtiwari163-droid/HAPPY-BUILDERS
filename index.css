@@ -1,0 +1,132 @@
+/* Custom animations and utilities */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.zoom-in {
+  animation: zoomIn 0.5s ease-out forwards;
+}
+
+/* Glassmorphism utility */
+.glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(247, 208, 96, 0.3);
+}
+
+.section-gold {
+  background-color: rgba(247, 208, 96, 0.1);
+}
+
+/* Premium Gold Gradient Animation */
+@keyframes gradientGold {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-gold {
+  background: linear-gradient(-45deg, rgba(252, 234, 177, 0.4), rgba(247, 208, 96, 0.3), rgba(252, 234, 177, 0.4), rgba(240, 130, 33, 0.1));
+  background-size: 400% 400%;
+  animation: gradientGold 8s ease infinite;
+}
+
+/* Ken Burns Animation */
+@keyframes kenBurns {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-ken-burns {
+  animation: kenBurns 20s ease-in-out infinite alternate;
+}
+
+/* Slow Pulse Animation */
+@keyframes pulseSlow {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.95;
+    transform: scale(1.02);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulseSlow 4s ease-in-out infinite;
+}
+
+/* Enhancements for text selection */
+::selection {
+  background: #ED2024;
+  /* Red */
+  color: #FEFDF7;
+  /* Cream */
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
