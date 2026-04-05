@@ -52,7 +52,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ setCurrentPage }) => {
   return (
     <div className="fade-in">
       {/* Hero Section */}
-      <section className="relative h-[90vh] min-h-[600px] overflow-hidden flex items-center">
+      <section className="relative min-h-screen md:h-[90vh] md:min-h-[600px] overflow-hidden flex items-center py-24 md:py-0">
         <div className="absolute inset-0 z-0">
           <img
             src="/Happy_Kuteer.jpg"
