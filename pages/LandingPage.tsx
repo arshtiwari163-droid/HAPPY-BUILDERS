@@ -62,7 +62,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ setCurrentPage }) => {
           <div className="absolute inset-0 bg-gradient-to-r from-gold/90 via-gold/40 to-navy/40"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-32 md:pt-0">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 md:space-y-8 text-center md:text-left">
               <span className="inline-block px-4 py-1 bg-navy text-gold font-bold text-xs tracking-widest uppercase rounded-full">
