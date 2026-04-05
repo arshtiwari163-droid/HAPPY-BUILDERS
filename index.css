@@ -126,7 +126,14 @@
   /* Cream */
 }
 
-/* Smooth scrolling */
+/* Global resets and smooth scrolling */
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.happy-builder-font {
+  font-family: "Libre Baskerville", Baskerville, "Baskerville Old Face", "Hoefler Text", Garamond, "Times New Roman", serif;
+  font-style: italic;
 }

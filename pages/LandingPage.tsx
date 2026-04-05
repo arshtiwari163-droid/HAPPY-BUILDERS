@@ -100,13 +100,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ setCurrentPage }) => {
                   alt="Happy Kuteer - Construction Update"
                   className="rounded-2xl shadow-2xl w-full h-auto object-contain border-4 border-gold animate-pulse-slow"
                 />
-                <div className="absolute -top-10 right-0 md:top-8 md:-right-8 bg-white p-4 rounded-xl shadow-xl border-l-8 border-red animate-bounce-slow z-20">
-                  <p className="text-navy font-bold text-xs uppercase tracking-widest mb-1">Special Launch Price</p>
-                  <p className="text-red font-black text-3xl">4,500 <span className="text-lg text-navy/60">/sq.ft</span></p>
-                </div>
+
                 <div className="absolute -bottom-10 left-0 md:bottom-12 md:-left-8 bg-gold p-6 rounded-2xl shadow-2xl max-w-[260px] md:max-w-[300px] border-l-8 border-navy z-20">
                   <p className="text-navy font-bold text-lg italic mb-2">"We Build Your Happiness"</p>
-                  <p className="text-red font-bold text-sm uppercase tracking-wider">— Happy Builders Vizag</p>
+                  <p className="text-red font-bold text-sm uppercase tracking-wider">— <span className="happy-builder-font">Happy Builders</span> Vizag</p>
                 </div>
               </div>
             </div>
@@ -130,42 +127,100 @@ const LandingPage: React.FC<LandingPageProps> = ({ setCurrentPage }) => {
             <span className="text-[10px] font-bold text-navy/70 uppercase tracking-widest">Expert Specialty</span>
           </div>
           <div className="flex flex-col items-center text-center">
-            <span className="text-2xl md:text-3xl font-black text-navy">15+</span>
-            <span className="text-[10px] font-bold text-navy/70 uppercase tracking-widest">Years Experience</span>
+            <span className="text-2xl md:text-3xl font-black text-navy border-b-2 border-red pb-1">RELIABLE</span>
+            <span className="text-[10px] font-bold text-navy/70 uppercase tracking-widest mt-1">Foundations</span>
           </div>
         </div>
       </section>
 
       {/* RERA and Managing Partner Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-            {/* Managing Partner */}
-            <div className="space-y-8 order-2 md:order-1">
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gold/20 rounded-3xl transform rotate-3"></div>
+      <section className="py-20 md:py-32 bg-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gold/5 -skew-x-12 translate-x-1/2"></div>
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-center">
+            {/* Managing Partner Image */}
+            <div className="relative group">
+              <div className="absolute -inset-6 bg-gold/20 rounded-[3rem] rotate-3 group-hover:rotate-0 transition-transform duration-700"></div>
+              <div className="absolute -inset-6 border-2 border-navy/5 rounded-[3rem] -rotate-3 group-hover:rotate-0 transition-transform duration-700"></div>
+              <div className="relative rounded-[2.5rem] shadow-2xl overflow-hidden border-8 border-white">
                 <img
                   src="/mkl.jpeg"
                   alt="Dileep Kumar Garapati"
-                  className="relative rounded-2xl shadow-2xl w-full h-[400px] md:h-[500px] object-cover"
+                  className="w-full h-[500px] md:h-[650px] object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy to-transparent p-6 md:p-8 pt-24 rounded-b-2xl">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white font-serif">Dileep Kumar Garapati</h3>
-                  <p className="text-gold font-bold uppercase tracking-widest text-xs md:text-sm mt-2">Managing Partner</p>
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy via-navy/60 to-transparent p-8 md:p-12 pt-32">
+                  <h3 className="text-3xl md:text-4xl font-bold text-white font-serif tracking-tight">Dileep Kumar Garapati</h3>
+                  <div className="flex items-center space-x-3 mt-3">
+                    <div className="h-0.5 w-8 bg-gold"></div>
+                    <p className="text-gold font-black uppercase tracking-[0.2em] text-xs">Managing Partner</p>
+                  </div>
                 </div>
               </div>
+
             </div>
 
-            {/* RERA and About */}
-            <div className="space-y-6 md:space-y-8 order-1 md:order-2 text-center md:text-left">
-              <h2 className="text-3xl md:text-4xl font-bold text-navy font-serif">Commitment to <span className="text-red">Excellence</span></h2>
-              <p className="text-navy/70 text-base md:text-lg leading-relaxed font-medium">
-                Under the visionary leadership of Mr. Dileep Kumar Garapati, Happy Builders has delivered landmark projects in Vizag. We are committed to transparency, quality, and timely delivery.
-              </p>
-              <div className="inline-block bg-navy/5 px-6 py-3 rounded-xl border border-navy/10">
-                <p className="text-navy font-bold text-xs md:text-sm tracking-widest uppercase">
-                  AP RERA: <span className="text-red">PO3280035440</span>
+            {/* Builder Details */}
+            <div className="space-y-10">
+              <div className="space-y-4">
+                <h2 className="text-4xl md:text-6xl font-bold text-navy font-serif leading-tight">
+                  The Visionary <br />
+                  <span className="text-red italic">Architect of Trust</span>
+                </h2>
+                <div className="w-20 h-1.5 bg-gold"></div>
+              </div>
+
+              <div className="space-y-6">
+                <p className="text-navy/80 text-lg md:text-xl leading-relaxed font-medium">
+                  Under the visionary leadership of Mr. Dileep Kumar Garapati, <span className="happy-builder-font">Happy Builders</span> has transformed the 2BHK residential landscape in Visakhapatnam.
                 </p>
+                <p className="text-navy/60 text-base leading-relaxed">
+                  With a legacy built on absolute transparency and 100% Vastu compliance, we don't just build apartments; we craft sanctuaries. Our commitment to using Tier-1 materials like Vizag Steel and Birla Shakti Cement ensures that every <span className="happy-builder-font">Happy Builders</span> home is a fortress of safety and comfort.
+                </p>
+              </div>
+
+              {/* Trust Pillars */}
+              <div className="grid grid-cols-2 gap-6 pt-4">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gold/10 rounded-xl flex items-center justify-center text-navy text-xl">🏆</div>
+                  <div>
+                    <p className="font-bold text-navy text-sm">GVMC/VMRDA</p>
+                    <p className="text-navy/50 text-[10px] uppercase font-bold tracking-wider">Approved Plans</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gold/10 rounded-xl flex items-center justify-center text-navy text-xl">🧱</div>
+                  <div>
+                    <p className="font-bold text-navy text-sm">In-table Bricks</p>
+                    <p className="text-navy/50 text-[10px] uppercase font-bold tracking-wider">Structural Integrity</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gold/10 rounded-xl flex items-center justify-center text-navy text-xl">⚖️</div>
+                  <div>
+                    <p className="font-bold text-navy text-sm">Clear Titles</p>
+                    <p className="text-navy/50 text-[10px] uppercase font-bold tracking-wider">Hassle-free Loans</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-gold/10 rounded-xl flex items-center justify-center text-navy text-xl">📍</div>
+                  <div>
+                    <p className="font-bold text-navy text-sm">Prime Spots</p>
+                    <p className="text-navy/50 text-[10px] uppercase font-bold tracking-wider">Madhurawada Experts</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6">
+                <div className="inline-flex items-center space-x-4 bg-navy px-8 py-4 rounded-2xl shadow-xl border border-white/10 group cursor-default">
+                  <div className="text-left">
+                    <p className="text-white/50 text-[10px] font-bold uppercase tracking-widest">AP RERA Registered</p>
+                    <p className="text-gold font-black text-lg tracking-wider">PO3280035440</p>
+                  </div>
+                  <div className="h-10 w-px bg-white/20"></div>
+                  <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center group-hover:bg-red transition-colors">
+                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -241,7 +296,9 @@ const LandingPage: React.FC<LandingPageProps> = ({ setCurrentPage }) => {
                     </svg>
                   ))}
                 </div>
-                <p className="text-gray-300 italic leading-relaxed font-medium text-sm md:text-base">"{t.text}"</p>
+                <p className="text-gray-300 italic leading-relaxed font-medium text-sm md:text-base">
+                  "{t.text.split(/(Happy Builders)/).map((p, i) => p === 'Happy Builders' ? <span key={i} className="happy-builder-font">Happy Builders</span> : p)}"
+                </p>
               </div>
             ))}
           </div>

@@ -23,7 +23,7 @@ const ContactPage: React.FC = () => {
           {/* Form */}
           <div className="space-y-8 md:space-y-12">
             <div className="space-y-4 text-center md:text-left">
-              <h2 className="text-3xl md:text-4xl font-bold text-navy font-serif">Get in <span className="text-red">Touch</span></h2>
+            <h1 className="text-3xl md:text-4xl font-bold text-navy font-serif">Get in <span className="text-red">Touch</span></h1>
               <p className="text-navy/70 leading-relaxed font-bold uppercase tracking-wider text-xs">
                 Vizag's Dream Home Experts
               </p>
@@ -62,7 +62,7 @@ const ContactPage: React.FC = () => {
                   onChange={(e) => setFormData({ ...formData, project: e.target.value })}
                   className="w-full p-4 bg-white/60 border border-gold/30 rounded-xl focus:outline-none focus:border-red transition-all font-semibold"
                 >
-                  <option>Happy Kuteer</option>
+                  <option className="happy-builder-font">Happy Kuteer</option>
                 </select>
               </div>
 
@@ -144,7 +144,7 @@ const ContactPage: React.FC = () => {
                   {faq.question}
                 </h4>
                 <p className="text-navy/70 font-medium leading-relaxed ml-12 whitespace-pre-line text-sm md:text-base">
-                  {faq.answer}
+                  {faq.answer.split(/(Happy Builders)/).map((p, i) => p === 'Happy Builders' ? <span key={i} className="happy-builder-font">Happy Builders</span> : p)}
                 </p>
               </div>
             ))}

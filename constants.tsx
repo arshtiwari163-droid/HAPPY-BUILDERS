@@ -50,11 +50,7 @@ export const AMENITIES: Amenity[] = [
     description: "Full reliability for your comfort",
     icon: "⚡"
   },
-  {
-    title: "4-Sided Ventilation",
-    description: "Natural air and sunlight",
-    icon: "🌬️"
-  },
+
   {
     title: "Car Parking",
     description: "Dedicated and safe space",
@@ -158,7 +154,7 @@ export const FAQS: FAQ[] = [
   },
   {
     question: "What extra costs should I expect apart from the flat cost?",
-    answer: "4500/- per sft\n2,00,000/- Amenities\nGst 1% on Registration value"
+    answer: "Please contact our sales team for the latest pricing, amenity charges, and GST details."
   }
 ];
 

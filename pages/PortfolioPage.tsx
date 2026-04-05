@@ -1,12 +1,17 @@
-
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { Page, Project } from '../types';
 import { PROJECTS } from '../constants';
 
-const PortfolioPage: React.FC = () => {
-  // Show all projects except upcoming ones unless user wants them
-  // Assuming user wants 1, 2, 3, 4 (which are Current and Completed)
-  const portfolioProjects = PROJECTS.filter(p => p.status !== 'Upcoming').sort((a, b) => (a.id - b.id)); // Sort by ID ascending
+interface PortfolioPageProps {
+  statusFilter?: 'Current' | 'Upcoming' | 'Completed';
+}
+
+const PortfolioPage: React.FC<PortfolioPageProps> = ({ statusFilter }) => {
+  // Filter based on the provided statusFilter prop
+  const portfolioProjects = PROJECTS
+    .filter(p => !statusFilter || p.status === statusFilter)
+    .sort((a, b) => (a.id - b.id)); 
 
   const headerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({

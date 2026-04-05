@@ -19,11 +19,11 @@ const TechnicalPage: React.FC = () => {
         {/* Premium Specifications Section */}
         <div className="mb-20 md:mb-32">
           <div className="text-center mb-12 md:mb-16 space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-navy font-serif">Project <span className="text-red">Amenities</span></h2>
+            <h1 className="text-3xl md:text-4xl font-bold text-navy font-serif">Project <span className="text-red">Amenities</span></h1>
             <p className="text-navy/70 max-w-2xl mx-auto font-bold uppercase tracking-widest text-[10px]">Premium features for modern 2BHK living</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {AMENITIES.map((amenity, idx) => (
               <div key={idx} className="flex items-center p-6 bg-white rounded-2xl shadow-lg border border-gold/20 hover:border-red transition-all hover:scale-105 group">
                 <div className="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center bg-navy/5 rounded-full mr-4 group-hover:bg-navy group-hover:text-gold transition-colors shrink-0">

@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import WhatsAppBot from './components/WhatsAppBot';
 import LandingPage from './pages/LandingPage';
@@ -11,12 +11,22 @@ import { Page } from './types';
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentPage]);
+
   const renderPage = () => {
     switch (currentPage) {
       case 'home':
         return <LandingPage setCurrentPage={setCurrentPage} />;
       case 'portfolio':
         return <PortfolioPage />;
+      case 'ongoing':
+        return <PortfolioPage statusFilter="Current" />;
+      case 'upcoming':
+        return <PortfolioPage statusFilter="Upcoming" />;
+      case 'completed':
+        return <PortfolioPage statusFilter="Completed" />;
       case 'technical':
         return <TechnicalPage />;
       case 'contact':
@@ -76,19 +86,19 @@ const App: React.FC = () => {
             </ul>
           </div>
 
-          <div className="space-y-6">
-            <h4 className="text-lg font-bold text-gold">Prime Locations</h4>
-            <ul className="space-y-4 text-sm text-gray-400">
-              <li>Madhurawada IT SEZ</li>
-              <li>Yendada Beach Road</li>
-              <li>MVP Colony Premium</li>
-              <li>Rushikonda Hills</li>
-            </ul>
+          <div className="space-y-6 md:col-span-1">
+            <h4 className="text-xl font-black text-gold uppercase tracking-tighter">
+              Prime <span className="happy-builder-font italic text-white lowercase">Locations</span>
+            </h4>
+            <div className="w-12 h-1 bg-red"></div>
+            <p className="text-gray-400 text-xs font-semibold uppercase tracking-widest leading-relaxed">
+              Serving the most <br /> iconic neighborhoods <br /> across Visakhapatnam.
+            </p>
           </div>
         </div>
         <div className="max-w-7xl mx-auto px-4 mt-20 pt-8 border-t border-white/5 text-center">
           <p className="text-gray-500 text-xs">
-            &copy; 2025 Happy Builders Visakhapatnam. "We Build Your Happiness" ©. All projects RERA/VMRDA Approved.
+            &copy; 2025 <span className="happy-builder-font">Happy Builders</span> Visakhapatnam. "We Build Your Happiness" ©. All projects RERA/VMRDA Approved.
           </p>
         </div>
       </footer>
