@@ -48,8 +48,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
               <img src="/Happy_Builders_Logo.png" alt="Happy Builders Logo" className="h-10 md:h-12 w-auto object-contain" />
               <div className="absolute inset-0 bg-gold/20 blur-xl group-hover:bg-gold/40 transition-colors rounded-full -z-10" />
             </div>
-            <span className="text-xl md:text-2xl font-black tracking-widest text-gold uppercase ml-2 drop-shadow-lg happy-builder-font">
-              Happy Builders
+            <span className="text-lg md:text-2xl font-black tracking-widest text-gold uppercase ml-2 md:ml-4 drop-shadow-lg happy-builder-font">
+              Happy <span className="hidden sm:inline">Builders</span>
             </span>
           </motion.div>
 
@@ -137,7 +137,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
               onClick={() => setIsOpen(!isOpen)} 
               className="text-gray-300 hover:text-white p-2 relative z-50"
             >
-              <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-8 w-8 text-gold" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
@@ -157,7 +157,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 bg-navy z-40 md:hidden flex flex-col justify-center px-8 py-20"
+            className="fixed inset-0 bg-navy/95 backdrop-blur-3xl z-40 md:hidden flex flex-col justify-center px-8 py-20"
           >
             <div className="space-y-6">
               <p className="text-[10px] font-black text-gold uppercase tracking-[0.3em] opacity-50">Navigation</p>

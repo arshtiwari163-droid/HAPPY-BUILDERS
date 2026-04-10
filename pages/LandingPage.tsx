@@ -94,7 +94,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ setCurrentPage }) => {
                 </span>
               </div>
               
-              <h1 className="text-5xl md:text-8xl font-black text-white leading-tight font-serif">
+              <h1 className="text-4xl md:text-8xl font-black text-white leading-tight font-serif">
                 Crafting <span className="text-gold text-glow italic">Happy</span> <br />
                 <span className="text-white">Homes.</span>
               </h1>
@@ -109,15 +109,15 @@ const LandingPage: React.FC<LandingPageProps> = ({ setCurrentPage }) => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setCurrentPage('technical')}
-                  className="px-10 py-5 bg-red text-white font-black rounded-2xl shadow-[0_20px_40px_rgba(237,32,36,0.3)] hover:shadow-[0_25px_50px_rgba(237,32,36,0.4)] transition-all uppercase tracking-widest text-sm"
+                  className="px-10 py-4 md:py-5 bg-red text-white font-black rounded-2xl shadow-[0_20px_40px_rgba(237,32,36,0.3)] hover:shadow-[0_25px_50px_rgba(237,32,36,0.4)] transition-all uppercase tracking-widest text-sm"
                 >
-                  View Project Details
+                  View Amenities & Plans
                 </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setCurrentPage('contact')}
-                  className="px-10 py-5 bg-navy/50 backdrop-blur-md border border-white/10 text-gold font-black rounded-2xl hover:bg-navy/70 transition-all uppercase tracking-widest text-sm"
+                  className="px-10 py-4 md:py-5 bg-navy/50 backdrop-blur-md border border-white/10 text-gold font-black rounded-2xl hover:bg-navy/70 transition-all uppercase tracking-widest text-sm"
                 >
                   Book Site Visit
                 </motion.button>
@@ -168,8 +168,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ setCurrentPage }) => {
               transition={{ delay: i * 0.1 }}
               className="flex flex-col items-center text-center p-6 rounded-3xl hover:bg-white/5 transition-colors group"
             >
-              <span className="text-3xl md:text-5xl font-black text-gold group-hover:scale-110 transition-transform duration-500">{badge.label}</span>
-              <span className="text-[10px] font-bold text-white/40 uppercase tracking-[0.3em] mt-2">{badge.sub}</span>
+              <span className="text-2xl md:text-5xl font-black text-gold group-hover:scale-110 transition-transform duration-500">{badge.label}</span>
+              <span className="text-[8px] md:text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] md:tracking-[0.3em] mt-2">{badge.sub}</span>
             </motion.div>
           ))}
         </div>

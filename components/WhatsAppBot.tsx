@@ -18,7 +18,7 @@ const WhatsAppBot: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-8 right-8 z-[10000]">
+    <div className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-[10000] scale-75 md:scale-100 origin-bottom-right">
       <AnimatePresence>
         {isOpen && (
           <motion.div 
