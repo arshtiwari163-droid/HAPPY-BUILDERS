@@ -1,8 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { AMENITIES, SPECIFICATIONS } from '../constants';
+import { Page } from '../types';
 
-const BrochurePage: React.FC = () => {
+interface BrochurePageProps {
+  setCurrentPage: (page: Page) => void;
+}
+
+const BrochurePage: React.FC<BrochurePageProps> = ({ setCurrentPage }) => {
   const floorPlans = [
     { 
       title: 'East Facing - 1000 Sq.Ft', 
@@ -151,7 +156,7 @@ const BrochurePage: React.FC = () => {
                   <h4 className="text-4xl font-black font-serif">Visit Our site Today</h4>
                   <p className="text-white/70 italic">Experience the quality and location firsthand. Book a site visit today.</p>
                   <button 
-                    onClick={() => window.location.href = '#contact'}
+                    onClick={() => setCurrentPage('contact')}
                     className="px-10 py-5 bg-red text-white rounded-full font-black uppercase tracking-widest shadow-2xl hover:bg-gold hover:text-navy transition-all"
                   >
                     Get Booking Details

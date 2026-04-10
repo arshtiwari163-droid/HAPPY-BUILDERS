@@ -37,7 +37,7 @@ const App: React.FC = () => {
       case 'blog':
         return <BlogPage />;
       case 'brochure':
-        return <BrochurePage />;
+        return <BrochurePage setCurrentPage={setCurrentPage} />;
       default:
         return <LandingPage setCurrentPage={setCurrentPage} />;
     }
