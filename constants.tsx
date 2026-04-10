@@ -10,7 +10,8 @@ export const PROJECTS: Project[] = [
     completionPercentage: 0, // Removed specific percentage as requested
     expectedDate: "2026",
     image: "/Happy_Kuteer.jpg",
-    description: "Premium residential development. Project 4 - Happy Kuteer (2026)."
+    description: "Premium residential development. Project 4 - Happy Kuteer (2026).",
+    brochure: "/happy_kuteer.pdf"
   },
   {
     id: 3,
@@ -117,16 +118,16 @@ export const MATERIALS: Material[] = [
 
 export const FAQS: FAQ[] = [
   {
-    question: "Why is Madhurawada considered the best investment in Vizag?",
-    answer: "It's Vizag's fastest-growing IT & residential corridor, offering high rental yields and proximity to beaches, schools, and the upcoming IT SEZ."
+    question: "Why is Madhurawada considered the best choice for ready to move flats in Vizag?",
+    answer: "Madhurawada is Vizag's fastest-growing IT & residential corridor. It offers high rental yields and the best flats for sale in Madhurawada Visakhapatnam, especially for those looking near the Google Data Center."
   },
   {
-    question: "Are your apartments RERA registered?",
-    answer: "Yes, every Happy Builders project is 100% AP RERA registered, ensuring transparency, legal safety, and timely delivery."
+    question: "How do I find affordable flats in Visakhapatnam under 50 lakhs?",
+    answer: "Happy Builders specializes in 2 BHK flats Madhurawada below 50 lakhs. We ensure every 2 BHK flat Madhurawada 50 lakh option we offer is RERA registered and home loan eligible."
   },
   {
-    question: "Why do you exclusively build East and West facing 2BHKs?",
-    answer: "These orientations provide the best natural light, cross-ventilation, and Vastu compliance, ensuring a healthy and prosperous living environment."
+    question: "2 BHK vs 3 BHK Madhurawada: Which is a better investment?",
+    answer: "In the Madhurawada real estate market, 2 BHKs sell and rent significantly faster. Our specialized 2 BHK ready possession Vizag projects offer the highest ROI due to high demand from IT professionals."
   },
   {
     question: "What is the current appreciation rate in Vizag?",

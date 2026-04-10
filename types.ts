@@ -10,6 +10,7 @@ export interface Project {
   description: string;
   completionPercentage?: number;
   expectedDate?: string;
+  brochure?: string;
 }
 
 export interface FAQ {

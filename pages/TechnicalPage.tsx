@@ -50,7 +50,7 @@ const TechnicalPage: React.FC = () => {
                 key={idx} 
                 variants={itemVariants}
                 whileHover={{ y: -10 }}
-                className="p-8 bg-white/5 backdrop-blur-xl rounded-[2.5rem] border border-white/10 hover:border-gold/50 transition-all flex flex-col items-center text-center group"
+                className="p-8 bg-white/5 backdrop-blur-xl rounded-[2.5rem] border border-white/10 hover:border-gold/50 transition-all flex flex-col items-center text-center group relative"
               >
                 <div className="w-20 h-20 flex items-center justify-center bg-navy/50 rounded-2xl border border-white/10 group-hover:bg-gold transition-all duration-500 mb-6">
                   <span className="text-4xl group-hover:scale-125 transition-transform duration-500">{amenity.icon}</span>

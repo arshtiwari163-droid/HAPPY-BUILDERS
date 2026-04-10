@@ -40,7 +40,7 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ statusFilter }) => {
             <span className="text-gold font-black text-xs uppercase tracking-[0.4em] block">
               Architectural Legacy
             </span>
-            <h1 className="text-5xl md:text-8xl font-black font-serif leading-none">
+            <h1 className="text-4xl sm:text-5xl md:text-8xl font-black font-serif leading-none">
               Our <span className="text-glow italic">Masterpieces</span>
             </h1>
             <div className="w-24 h-2 bg-red mx-auto text-glow"></div>
@@ -102,6 +102,18 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ statusFilter }) => {
                     <div className="w-12 h-12 rounded-full border-2 border-navy bg-gold/10 backdrop-blur-md flex items-center justify-center text-[10px] font-black text-gold">2BHK</div>
                     <div className="w-12 h-12 rounded-full border-2 border-navy bg-red/10 backdrop-blur-md flex items-center justify-center text-[10px] font-black text-red">VASTU</div>
                   </div>
+
+                  {project.brochure && (
+                    <motion.a
+                      href={project.brochure}
+                      download
+                      whileHover={{ scale: 1.1, backgroundColor: '#f7d060', color: '#0a0c1a' }}
+                      whileTap={{ scale: 0.95 }}
+                      className="bg-white/5 border border-white/10 px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest text-white transition-all shadow-xl"
+                    >
+                      Download Brochure
+                    </motion.a>
+                  )}
                 </div>
               </div>
 

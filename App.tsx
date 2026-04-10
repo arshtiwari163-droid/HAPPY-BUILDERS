@@ -8,6 +8,7 @@ import TechnicalPage from './pages/TechnicalPage';
 import ContactPage from './pages/ContactPage';
 import BlogPage from './pages/BlogPage';
 import { Page } from './types';
+import ScrollToTop from './components/ScrollToTop';
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -40,7 +41,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col font-sans transition-colors duration-500 relative">
+    <div className="min-h-screen flex flex-col font-sans transition-colors duration-500 relative overflow-x-hidden">
       <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
 
       <main className="flex-grow">
@@ -49,6 +50,7 @@ const App: React.FC = () => {
 
       {/* WhatsApp Chatbot */}
       <WhatsAppBot />
+      <ScrollToTop />
 
       {/* Footer */}
       <footer className="bg-navy text-white py-12 md:py-20 border-t border-gold/10">

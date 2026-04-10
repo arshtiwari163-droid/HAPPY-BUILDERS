@@ -94,14 +94,14 @@ const LandingPage: React.FC<LandingPageProps> = ({ setCurrentPage }) => {
                 </span>
               </div>
               
-              <h1 className="text-4xl md:text-8xl font-black text-white leading-tight font-serif">
+              <h1 className="text-3xl sm:text-4xl md:text-8xl font-black text-white leading-tight font-serif">
                 Crafting <span className="text-gold text-glow italic">Happy</span> <br />
                 <span className="text-white">Homes.</span>
               </h1>
               
               <p className="text-xl md:text-2xl text-white/70 max-w-lg leading-relaxed font-medium">
-                Specializing in exclusive 2 BHK flats with East and West facing options.
-                <span className="text-gold block mt-2">100% Vastu perfection in Visakhapatnam.</span>
+                Premier <span className="text-white">2 BHK apartments in Vizag under 50 lakhs</span>. Specializing in East and West facing flats for sale in Madhurawada Visakhapatnam.
+                <span className="text-gold block mt-2">100% Vastu perfection near the IT hub & Kommadi.</span>
               </p>
 
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
@@ -168,8 +168,8 @@ const LandingPage: React.FC<LandingPageProps> = ({ setCurrentPage }) => {
               transition={{ delay: i * 0.1 }}
               className="flex flex-col items-center text-center p-6 rounded-3xl hover:bg-white/5 transition-colors group"
             >
-              <span className="text-2xl md:text-5xl font-black text-gold group-hover:scale-110 transition-transform duration-500">{badge.label}</span>
-              <span className="text-[8px] md:text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] md:tracking-[0.3em] mt-2">{badge.sub}</span>
+              <span className="text-xl sm:text-2xl md:text-5xl font-black text-gold group-hover:scale-110 transition-transform duration-500">{badge.label}</span>
+              <span className="text-[7px] sm:text-[8px] md:text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] md:tracking-[0.3em] mt-2">{badge.sub}</span>
             </motion.div>
           ))}
         </div>
@@ -188,10 +188,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ setCurrentPage }) => {
             >
               <div className="absolute -inset-6 bg-gold/20 rounded-[4rem] rotate-3"></div>
               <div className="relative rounded-[3.5rem] overflow-hidden border-8 border-white shadow-2xl">
-                <img
+                 <img
                   src="/mkl.jpeg"
                   alt="Dileep Kumar Garapati"
-                  className="w-full h-[600px] md:h-[800px] object-cover hover:scale-105 transition-transform duration-1000"
+                  className="w-full h-[400px] sm:h-[500px] md:h-[800px] object-cover hover:scale-105 transition-transform duration-1000"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-12">
@@ -208,7 +208,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ setCurrentPage }) => {
               className="space-y-10"
             >
               <div className="space-y-4">
-                <h2 className="text-5xl md:text-7xl font-black text-navy font-serif leading-tight">
+                <h2 className="text-3xl sm:text-5xl md:text-7xl font-black text-navy font-serif leading-tight">
                   Visionary <br />
                   <span className="text-red italic">Architect of Trust</span>
                 </h2>
@@ -258,45 +258,20 @@ const LandingPage: React.FC<LandingPageProps> = ({ setCurrentPage }) => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <div className="space-y-4">
-              <h2 className="text-5xl font-black text-white font-serif">Featured <span className="text-gold italic">Specialties</span></h2>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white font-serif tracking-tight">
+                2 BHK Flats in <span className="text-gold italic">Madhurawada</span>
+              </h2>
               <div className="w-24 h-1.5 bg-red"></div>
             </div>
-            <p className="text-white/50 max-w-sm text-right font-medium">
-              Explore our current developments across the most prime locations of Vizag.
+            <p className="text-white/50 max-w-sm text-center md:text-right font-medium text-sm md:text-base">
+              Explore buy flat Visakhapatnam options and affordable property in Madhurawada near Kommadi.
             </p>
           </div>
 
-          <div className={`grid md:grid-cols-2 gap-12 ${currentProjects.length === 1 ? 'max-w-6xl mx-auto' : ''}`}>
+          <div className="grid md:grid-cols-2 gap-12">
             {currentProjects.map(project => (
               <ProjectCard key={project.id} project={project} setCurrentPage={setCurrentPage} />
             ))}
-            
-            {currentProjects.length === 1 && (
-              <motion.div 
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="bg-gold/5 backdrop-blur-xl rounded-[2.5rem] border border-gold/20 p-12 flex flex-col justify-center items-center text-center space-y-8"
-              >
-                <div className="w-24 h-24 bg-gold/10 rounded-full flex items-center justify-center text-gold text-5xl">
-                   🏗️
-                </div>
-                <div className="space-y-4">
-                  <h3 className="text-3xl font-black text-white font-serif">More Projects <br/><span className="text-gold italic">Coming Soon</span></h3>
-                  <p className="text-white/50 font-medium">
-                    We are currently analyzing multiple prime spots in Madhurawada and Yendada for our upcoming 2BHK ventures.
-                  </p>
-                </div>
-                <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  onClick={() => setCurrentPage('contact')}
-                  className="px-10 py-5 bg-gold text-navy font-black rounded-2xl shadow-2xl uppercase tracking-widest text-xs"
-                >
-                  Join Waiting List
-                </motion.button>
-              </motion.div>
-            )}
           </div>
 
         </div>
@@ -350,7 +325,7 @@ const ProjectCard: React.FC<{ project: Project; setCurrentPage: (page: Page) => 
   return (
     <motion.div 
       whileHover={{ y: -10 }}
-      className="bg-navy-light/30 backdrop-blur-xl rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl group flex flex-col h-full"
+      className="bg-navy-light/30 backdrop-blur-xl rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl group flex flex-col h-full relative"
     >
       <div className="relative h-[400px] overflow-hidden">
         <img 
@@ -385,14 +360,28 @@ const ProjectCard: React.FC<{ project: Project; setCurrentPage: (page: Page) => 
         </p>
 
         <div className="pt-6 border-t border-white/5 flex items-center justify-between">
-          <motion.button 
-            whileHover={{ x: 5 }}
-            onClick={() => setCurrentPage('technical')}
-            className="text-white font-black text-xs uppercase tracking-[0.2em] flex items-center group/btn"
-          >
-            Explore Plan 
-            <svg className="w-5 h-5 ml-2 text-red group-hover/btn:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-          </motion.button>
+          <div className="flex items-center space-x-6">
+            <motion.button 
+              whileHover={{ x: 5 }}
+              onClick={() => setCurrentPage('technical')}
+              className="text-sm md:text-xs text-white font-black uppercase tracking-[0.2em] flex items-center group/btn py-2"
+            >
+              Explore Plan 
+              <svg className="w-5 h-5 ml-2 text-red group-hover/btn:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </motion.button>
+
+            {project.brochure && (
+              <motion.a
+                href={project.brochure}
+                download
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-white/10 hover:bg-gold hover:text-navy px-5 py-3 md:px-4 md:py-2 rounded-xl text-xs md:text-[10px] font-black uppercase tracking-widest transition-all"
+              >
+                Brochure
+              </motion.a>
+            )}
+          </div>
           <div className="flex -space-x-3">
              <div className="w-10 h-10 rounded-full border-2 border-navy bg-gold/20 backdrop-blur-md flex items-center justify-center text-[10px] font-black text-gold">2BHK</div>
              <div className="w-10 h-10 rounded-full border-2 border-navy bg-red/20 backdrop-blur-md flex items-center justify-center text-[10px] font-black text-red">RERA</div>

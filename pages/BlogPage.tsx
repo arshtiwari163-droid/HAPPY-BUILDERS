@@ -13,11 +13,13 @@ const BlogPage: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         <div className="text-center mb-12 md:mb-20 space-y-4">
-          <span className="text-gold font-black text-xs uppercase tracking-[0.4em] block">Support Hub</span>
-          <h1 className="text-4xl md:text-7xl font-black font-serif px-4">Property <span className="text-glow italic text-white/90">FAQs</span></h1>
+          <span className="text-gold font-black text-xs uppercase tracking-[0.4em] block">Vizag Real Estate Guide</span>
+          <h1 className="text-4xl md:text-7xl font-black font-serif px-4 text-glow">
+            2 BHK Apartments <span className="italic text-white/90">Vizag</span>
+          </h1>
           <div className="w-24 h-2 bg-red mx-auto"></div>
           <p className="text-white/50 text-lg md:text-xl font-medium max-w-2xl mx-auto pt-6">
-            Expert insights and answers to all your real estate and property queries in Visakhapatnam.
+            Everything you need to know about buying affordable property in Madhurawada and finding new flats in Visakhapatnam 2025.
           </p>
         </div>
 
@@ -30,7 +32,7 @@ const BlogPage: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
               whileHover={{ scale: 1.02 }}
-              className="bg-white/5 backdrop-blur-xl p-8 md:p-10 rounded-[3rem] border border-white/10 hover:border-red/50 transition-all shadow-2xl group flex flex-col"
+              className="bg-white/5 backdrop-blur-xl p-8 md:p-10 rounded-[3rem] border border-white/10 hover:border-red/50 transition-all shadow-2xl group flex flex-col relative"
             >
               <div className="flex space-x-6 mb-6">
                  <div className="w-10 h-10 md:w-12 md:h-12 bg-gold text-navy rounded-full flex items-center justify-center font-black text-lg md:text-xl shrink-0 mt-1">Q</div>

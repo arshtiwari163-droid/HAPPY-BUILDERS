@@ -12,6 +12,7 @@
 
   --font-sans: "Montserrat", sans-serif;
   --font-serif: "Playfair Display", serif;
+  --font-script: "Great Vibes", cursive;
 
   --animate-ken-burns: ken-burns 20s ease-in-out infinite alternate;
   --animate-pulse-slow: pulse-slow 4s ease-in-out infinite;
@@ -52,9 +53,8 @@
   }
 
   .happy-builder-font {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    color: #ED2024;
+    font-family: 'Great Vibes', cursive;
+    font-weight: 400;
   }
 
   .glass-card {

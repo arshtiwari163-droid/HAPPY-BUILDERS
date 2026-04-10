@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 import { Page } from '../types';
 
 interface NavbarProps {
@@ -11,6 +11,13 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isProjectsOpen, setIsProjectsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,6 +42,10 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
           : 'bg-transparent py-4'
       }`}
     >
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 h-0.5 bg-gold origin-left z-50"
+        style={{ scaleX }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo Brand */}
@@ -48,8 +59,8 @@ const Navbar: React.FC<NavbarProps> = ({ currentPage, setCurrentPage }) => {
               <img src="/Happy_Builders_Logo.png" alt="Happy Builders Logo" className="h-10 md:h-12 w-auto object-contain" />
               <div className="absolute inset-0 bg-gold/20 blur-xl group-hover:bg-gold/40 transition-colors rounded-full -z-10" />
             </div>
-            <span className="text-lg md:text-2xl font-black tracking-widest text-gold uppercase ml-2 md:ml-4 drop-shadow-lg happy-builder-font">
-              Happy <span className="hidden sm:inline">Builders</span>
+            <span className="text-lg sm:text-2xl md:text-4xl font-normal text-gold ml-2 md:ml-4 happy-builder-font whitespace-nowrap">
+              Happy Builders
             </span>
           </motion.div>
 
