@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Page, Project } from '../types';
+import { Project } from '../types';
 import { PROJECTS } from '../constants';
 
 interface PortfolioPageProps {
@@ -8,130 +8,126 @@ interface PortfolioPageProps {
 }
 
 const PortfolioPage: React.FC<PortfolioPageProps> = ({ statusFilter }) => {
-  // Filter based on the provided statusFilter prop
   const portfolioProjects = PROJECTS
     .filter(p => !statusFilter || p.status === statusFilter)
     .sort((a, b) => (a.id - b.id)); 
 
-  const headerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
-    target: headerRef,
-    offset: ["start start", "end start"]
+    target: containerRef,
+    offset: ["start start", "end end"]
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
   return (
-    <div className="min-h-screen bg-off-white text-navy overflow-x-hidden">
-
-      {/* Hero Section */}
-      <div className="relative h-[60vh] flex items-center justify-center overflow-hidden" ref={headerRef}>
-        <motion.div
-          className="absolute inset-0 z-0"
-          style={{ y, opacity }}
-        >
-          <div className="absolute inset-0 bg-navy/5 pattern-grid-lg"></div>
-          <div className="absolute top-0 left-0 w-64 h-64 bg-gold/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-red/5 rounded-full blur-3xl translate-x-1/3 translate-y-1/3"></div>
+    <div className="min-h-screen bg-navy text-white overflow-x-hidden pt-20 relative" ref={containerRef}>
+      {/* Dynamic Header */}
+      <div className="relative py-24 md:py-32 flex items-center justify-center overflow-hidden">
+        <motion.div style={{ y: backgroundY }} className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px]"></div>
+          <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-red/5 rounded-full blur-[120px]"></div>
         </motion.div>
 
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto space-y-6">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="space-y-4"
           >
-            <h1 className="text-4xl md:text-7xl font-bold font-serif mb-6">
-              Our <span className="text-red relative inline-block">
-                Masterpieces
-                <motion.span
-                  className="absolute bottom-2 left-0 w-full h-3 bg-gold/30 -z-10"
-                  initial={{ width: 0 }}
-                  animate={{ width: "100%" }}
-                  transition={{ delay: 0.5, duration: 0.8 }}
-                ></motion.span>
-              </span>
+            <span className="text-gold font-black text-xs uppercase tracking-[0.4em] block">
+              Architectural Legacy
+            </span>
+            <h1 className="text-5xl md:text-8xl font-black font-serif leading-none">
+              Our <span className="text-glow italic">Masterpieces</span>
             </h1>
-            <p className="text-lg md:text-2xl text-navy/70 font-light max-w-2xl mx-auto leading-relaxed">
-              Crafting landmarks that define the skyline of Visakhapatnam since 2021.
+            <div className="w-24 h-2 bg-red mx-auto text-glow"></div>
+            <p className="text-xl md:text-2xl text-white/50 max-w-2xl mx-auto leading-relaxed font-medium">
+              Defining the skyline of Visakhapatnam since 2021 with Vastu-perfect residential projects.
             </p>
           </motion.div>
         </div>
-
-        <motion.div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, y: [0, 10, 0] }}
-          transition={{ delay: 1, duration: 1.5, repeat: Infinity }}
-        >
-          <div className="w-6 h-10 border-2 border-navy/30 rounded-full flex justify-center p-1">
-            <div className="w-1 h-2 bg-navy/50 rounded-full"></div>
-          </div>
-        </motion.div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 py-12 md:py-20">
-
-        {/* Previous Works Grid */}
-        <div className="space-y-12 md:space-y-16">
-          <div className="text-center space-y-4 mb-12 md:mb-16">
+      {/* Projects Grid */}
+      <div className="max-w-7xl mx-auto px-4 py-12 md:py-24 relative z-10">
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
+          {portfolioProjects.map((project, index) => (
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              key={project.id}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+              whileHover={{ y: -15 }}
+              className="group relative flex flex-col h-full bg-white/5 backdrop-blur-xl rounded-[3rem] overflow-hidden border border-white/10 shadow-2xl transition-all duration-500"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-navy font-serif">Project Portfolio</h2>
-              <div className="w-24 h-1 bg-red mx-auto mt-4"></div>
+              {/* Image Container */}
+              <div className="relative h-[450px] overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy via-navy/20 to-transparent" />
+                
+                <div className="absolute top-8 right-8">
+                  <span className={`px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest shadow-2xl ${
+                    project.status === 'Completed' ? 'bg-white text-navy' : 'bg-red text-white'
+                  }`}>
+                    {project.status}
+                  </span>
+                </div>
+
+                <div className="absolute bottom-8 left-8 right-8">
+                   <h3 className="text-3xl font-black text-white group-hover:text-gold transition-colors duration-300">
+                     {project.title}
+                   </h3>
+                   <p className="text-gold font-bold text-xs uppercase tracking-[0.2em] mt-1">
+                     {project.location}
+                   </p>
+                </div>
+              </div>
+
+              {/* Content Container */}
+              <div className="p-10 flex flex-col flex-grow space-y-6">
+                <p className="text-white/60 text-lg leading-relaxed font-medium flex-grow italic">
+                  "{project.description}"
+                </p>
+
+                <div className="pt-8 border-t border-white/5 flex justify-between items-center">
+                  <div className="flex -space-x-3">
+                    <div className="w-12 h-12 rounded-full border-2 border-navy bg-gold/10 backdrop-blur-md flex items-center justify-center text-[10px] font-black text-gold">2BHK</div>
+                    <div className="w-12 h-12 rounded-full border-2 border-navy bg-red/10 backdrop-blur-md flex items-center justify-center text-[10px] font-black text-red">VASTU</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Decorative ID */}
+              <div className="absolute top-0 left-0 p-8 text-4xl font-black text-white/5 pointer-events-none group-hover:text-white/10 transition-colors">
+                {project.id.toString().padStart(2, '0')}
+              </div>
             </motion.div>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 md:gap-8">
-            {portfolioProjects.map((project, index) => (
-              <motion.div
-                key={project.id}
-                className="group relative overflow-hidden rounded-3xl h-[500px] md:h-[600px] shadow-xl hover:shadow-2xl transition-all duration-500 bg-white"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-              >
-                <div className="absolute inset-0 bg-navy/10 group-hover:bg-navy/0 transition-colors duration-500 z-10 pointer-events-none"></div>
-
-                <div className="h-[55%] overflow-hidden relative">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
-                  />
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-1 rounded-full text-xs font-bold text-navy shadow-sm z-20">
-                    {project.status === 'Completed' ? 'Completed' : 'Current'}
-                  </div>
-                </div>
-
-                <div className="h-[45%] p-6 md:p-8 flex flex-col justify-between relative bg-white">
-                  <div>
-                    <h4 className="text-xl md:text-2xl font-bold text-navy mb-2 font-serif group-hover:text-red transition-colors">{project.title}</h4>
-                    <p className="text-gold font-bold text-xs uppercase tracking-widest mb-4">{project.location}</p>
-                    <p className="text-sm text-navy/60 line-clamp-3 leading-relaxed">
-                      {project.description}
-                    </p>
-                  </div>
-
-                  <div className="mt-4 pt-4 border-t border-navy/5 flex justify-between items-center">
-                    <span className="text-xs font-bold text-navy/40">ID: {project.id.toString().padStart(2, '0')}</span>
-                    <button className="bg-navy text-white px-5 py-2 rounded-full text-sm font-bold flex items-center shadow-lg hover:bg-red hover:shadow-xl transition-all duration-300 transform group-hover:scale-105">
-                      View Details <span className="ml-2 text-lg">→</span>
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          ))}
         </div>
       </div>
+
+      {/* Footer Support */}
+      <section className="py-24 bg-gold/5 border-t border-white/5">
+        <div className="max-w-3xl mx-auto px-4 text-center space-y-8">
+          <h2 className="text-4xl font-black font-serif">Interested in a <span className="text-gold italic">Site Visit?</span></h2>
+          <p className="text-white/50 text-xl font-medium">Experience our construction quality firsthand. We have projects across all major hubs of Vizag.</p>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-12 py-5 bg-navy border border-gold/30 text-gold font-black rounded-2xl shadow-2xl uppercase tracking-widest text-sm"
+          >
+            Contact Happy Builders
+          </motion.button>
+        </div>
+      </section>
     </div>
   );
 };

@@ -1,169 +1,209 @@
-
 import React from 'react';
-import { MATERIALS, AMENITIES, SPECIFICATIONS } from '../constants';
+import { motion, AnimatePresence } from 'framer-motion';
+import { AMENITIES, SPECIFICATIONS } from '../constants';
 
 const TechnicalPage: React.FC = () => {
-
   const [selectedImage, setSelectedImage] = React.useState<string | null>(null);
 
   const handleViewImage = (imagePath: string) => {
     setSelectedImage(imagePath);
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1, 
+      transition: { staggerChildren: 0.15 } 
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1 }
+  };
+
   return (
-    <div className="min-h-screen py-24 fade-in relative">
-      <div className="max-w-7xl mx-auto px-4">
+    <div className="min-h-screen bg-navy text-white pt-32 pb-24 overflow-x-hidden relative">
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-gold/5 rounded-full blur-[150px]"></div>
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-red/5 rounded-full blur-[150px]"></div>
+      </div>
 
-
-
-        {/* Premium Specifications Section */}
-        <div className="mb-20 md:mb-32">
-          <div className="text-center mb-12 md:mb-16 space-y-4">
-            <h1 className="text-3xl md:text-4xl font-bold text-navy font-serif">Project <span className="text-red">Amenities</span></h1>
-            <p className="text-navy/70 max-w-2xl mx-auto font-bold uppercase tracking-widest text-[10px]">Premium features for modern 2BHK living</p>
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
+        {/* Amenities Section */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="mb-24 md:mb-40"
+        >
+          <div className="text-center mb-16 space-y-4">
+            <span className="text-gold font-black text-xs uppercase tracking-[0.4em] block">Exclusive Features</span>
+            <h1 className="text-5xl md:text-7xl font-black font-serif">Project <span className="text-glow italic text-white/90">Amenities</span></h1>
+            <div className="w-24 h-2 bg-red mx-auto"></div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {AMENITIES.map((amenity, idx) => (
-              <div key={idx} className="flex items-center p-6 bg-white rounded-2xl shadow-lg border border-gold/20 hover:border-red transition-all hover:scale-105 group">
-                <div className="w-14 h-14 md:w-16 md:h-16 flex items-center justify-center bg-navy/5 rounded-full mr-4 group-hover:bg-navy group-hover:text-gold transition-colors shrink-0">
-                  <span className="text-2xl md:text-3xl">{amenity.icon}</span>
+              <motion.div 
+                key={idx} 
+                variants={itemVariants}
+                whileHover={{ y: -10 }}
+                className="p-8 bg-white/5 backdrop-blur-xl rounded-[2.5rem] border border-white/10 hover:border-gold/50 transition-all flex flex-col items-center text-center group"
+              >
+                <div className="w-20 h-20 flex items-center justify-center bg-navy/50 rounded-2xl border border-white/10 group-hover:bg-gold transition-all duration-500 mb-6">
+                  <span className="text-4xl group-hover:scale-125 transition-transform duration-500">{amenity.icon}</span>
                 </div>
-                <div>
-                  <h4 className="text-lg font-bold text-navy leading-tight group-hover:text-red transition-colors">
-                    {amenity.title}
-                  </h4>
-                  <p className="text-xs text-navy/60 font-medium mt-1">{amenity.description}</p>
-                </div>
-              </div>
+                <h4 className="text-xl font-black text-white group-hover:text-gold transition-colors">{amenity.title}</h4>
+                <p className="text-sm text-white/50 font-medium mt-3 leading-relaxed">{amenity.description}</p>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Technical Specifications Section */}
-        <div className="mb-20 md:mb-32">
-          <div className="text-center mb-12 md:mb-16 space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-navy font-serif">Technical <span className="text-red">Specifications</span></h2>
-            <p className="text-navy/70 max-w-2xl mx-auto font-bold uppercase tracking-widest text-[10px]">Detailed construction standards</p>
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="mb-24 md:mb-40"
+        >
+          <div className="text-center mb-16 space-y-4">
+            <span className="text-gold font-black text-xs uppercase tracking-[0.4em] block">Quality Standards</span>
+            <h2 className="text-5xl md:text-7xl font-black font-serif">Technical <span className="text-glow italic text-white/90">Details</span></h2>
+            <div className="w-24 h-2 bg-red mx-auto"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
             {SPECIFICATIONS.map((spec, idx) => (
-              <div key={idx} className="glass-card p-6 md:p-8 rounded-2xl shadow-sm border border-white/50 hover:shadow-lg transition-all duration-300">
-                <div className="flex items-start space-x-4">
-                  <div className="text-3xl md:text-4xl shrink-0 mt-1">{spec.icon}</div>
-                  <div className="space-y-3">
-                    <h4 className="text-lg md:text-xl font-bold text-navy border-b border-red/20 pb-2 mb-2 inline-block">
+              <motion.div 
+                key={idx} 
+                variants={itemVariants}
+                className="bg-white/5 backdrop-blur-xl p-10 rounded-[3rem] border border-white/10 hover:border-red/50 transition-all shadow-2xl"
+              >
+                <div className="flex items-start space-x-6">
+                  <div className="text-5xl shrink-0">{spec.icon}</div>
+                  <div className="space-y-6">
+                    <h4 className="text-2xl font-black text-gold font-serif">
                       {spec.category}
                     </h4>
-                    <ul className="space-y-2">
+                    <ul className="space-y-4">
                       {spec.details.map((detail, dIdx) => (
-                        <li key={dIdx} className="text-navy/70 text-sm font-medium flex items-start">
-                          <span className="w-1.5 h-1.5 bg-red rounded-full mt-1.5 mr-2 shrink-0"></span>
+                        <li key={dIdx} className="text-white/60 text-base font-medium flex items-start group">
+                          <span className="w-2 h-2 bg-red rounded-full mt-2 mr-3 group-hover:scale-150 transition-transform"></span>
                           <span className="leading-relaxed">{detail}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
 
-        {/* Blueprints Section - Exclusive 2BHK East/West */}
-        <div className="space-y-12 md:space-y-16">
+        {/* Blueprints Section */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="space-y-16"
+        >
           <div className="text-center space-y-4">
-            <h2 className="text-3xl font-bold text-navy font-serif">2BHK Floor Plans</h2>
-            <p className="text-navy/60 font-medium text-sm md:text-base">We offer two perfect orientations: East Facing and West Facing.</p>
-            <div className="w-16 h-1 bg-red mx-auto"></div>
+            <span className="text-gold font-black text-xs uppercase tracking-[0.4em] block">Smart Layouts</span>
+            <h2 className="text-5xl md:text-7xl font-black font-serif">2BHK <span className="text-glow italic text-white/90">Plans</span></h2>
+            <div className="w-24 h-2 bg-red mx-auto"></div>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-            {/* 2BHK East Plan */}
-            <div className="glass-card p-6 rounded-3xl shadow-xl border border-white/40 group relative overflow-hidden">
-              <div className="mb-6 flex justify-between items-center">
-                <h3 className="text-xl md:text-2xl font-bold text-navy">Premium 2BHK (East)</h3>
-                <span className="bg-navy text-white px-3 py-1 rounded-full text-[10px] md:text-xs font-bold">1000 Sq.Ft</span>
-              </div>
-              <div className="bg-white/40 rounded-2xl h-64 md:h-80 overflow-hidden relative border border-white/20 cursor-pointer" onClick={() => handleViewImage('/East_facing.jpg')}>
-                <img
-                  src="/East_facing.jpg"
-                  alt="2BHK East Plan"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
-                />
-                <div className="absolute inset-0 bg-navy/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <button
-                    className="bg-white/90 text-navy px-6 py-2 rounded-full font-bold shadow-lg flex items-center space-x-2 transform hover:scale-110 transition-all backdrop-blur-sm"
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                    <span>View Plan</span>
-                  </button>
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
+            {[
+              { title: 'Premium (East)', file: '/East_facing.jpg', features: ['100% Vastu', 'Morning Sun', 'Master Balcony', 'Smart Kitchen'] },
+              { title: 'Premium (West)', file: '/West_facing.jpg', features: ['100% Vastu', 'Evening Breeze', 'Spacious Living', 'Dual Veranda'] }
+            ].map((plan, i) => (
+              <motion.div 
+                key={i}
+                variants={itemVariants}
+                whileHover={{ y: -15 }}
+                className="bg-white/5 backdrop-blur-xl p-8 rounded-[3.5rem] border border-white/10 shadow-2xl group relative overflow-hidden flex flex-col"
+              >
+                <div className="mb-8 flex justify-between items-end">
+                  <div>
+                    <h3 className="text-3xl font-black text-white group-hover:text-gold transition-colors">{plan.title}</h3>
+                    <p className="text-gold font-bold text-xs uppercase tracking-[0.2em] mt-1">1000 Sq.Ft Layout</p>
+                  </div>
+                  <div className="w-12 h-12 rounded-2xl bg-gold/10 flex items-center justify-center text-gold font-black text-lg">
+                    {i === 0 ? 'E' : 'W'}
+                  </div>
                 </div>
-              </div>
-              <ul className="mt-6 grid grid-cols-2 gap-4 text-xs md:text-sm text-navy/70 font-semibold">
-                <li className="flex items-center"><span className="w-2 h-2 bg-red rounded-full mr-2"></span> 100% Vastu</li>
-                <li className="flex items-center"><span className="w-2 h-2 bg-red rounded-full mr-2"></span> Morning Sun</li>
-                <li className="flex items-center"><span className="w-2 h-2 bg-red rounded-full mr-2"></span> Master Balcony</li>
-                <li className="flex items-center"><span className="w-2 h-2 bg-red rounded-full mr-2"></span> Smart Kitchen</li>
-              </ul>
-            </div>
 
-            {/* 2BHK West Plan */}
-            <div className="glass-card p-6 rounded-3xl shadow-xl border border-white/40 group relative overflow-hidden">
-              <div className="mb-6 flex justify-between items-center">
-                <h3 className="text-xl md:text-2xl font-bold text-navy">Premium 2BHK (West)</h3>
-                <span className="bg-navy text-white px-3 py-1 rounded-full text-[10px] md:text-xs font-bold">1000 Sq.Ft</span>
-              </div>
-              <div className="bg-white/40 rounded-2xl h-64 md:h-80 overflow-hidden relative border border-white/20 cursor-pointer" onClick={() => handleViewImage('/West_facing.jpg')}>
-                <img
-                  src="/West_facing.jpg"
-                  alt="2BHK West Plan"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80"
-                />
-                <div className="absolute inset-0 bg-navy/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                  <button
-                    className="bg-white/90 text-navy px-6 py-2 rounded-full font-bold shadow-lg flex items-center space-x-2 transform hover:scale-110 transition-all backdrop-blur-sm"
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
-                    <span>View Plan</span>
-                  </button>
+                <div 
+                  className="bg-navy rounded-[2.5rem] h-[500px] overflow-hidden relative border border-white/10 cursor-pointer shadow-inner"
+                  onClick={() => handleViewImage(plan.file)}
+                >
+                  <img
+                    src={plan.file}
+                    alt={`${plan.title} Floor Plan`}
+                    className="w-full h-full object-contain opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-navy to-transparent">
+                    <button className="w-full py-4 bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl text-white font-black uppercase tracking-widest text-xs hover:bg-gold hover:text-navy transition-all">
+                      View Full Details
+                    </button>
+                  </div>
                 </div>
-              </div>
-              <ul className="mt-6 grid grid-cols-2 gap-4 text-xs md:text-sm text-navy/70 font-semibold">
-                <li className="flex items-center"><span className="w-2 h-2 bg-red rounded-full mr-2"></span> 100% Vastu</li>
-                <li className="flex items-center"><span className="w-2 h-2 bg-red rounded-full mr-2"></span> Evening Breeze</li>
-                <li className="flex items-center"><span className="w-2 h-2 bg-red rounded-full mr-2"></span> Spacious Living</li>
-                <li className="flex items-center"><span className="w-2 h-2 bg-red rounded-full mr-2"></span> Dual Veranda</li>
-              </ul>
-            </div>
+
+                <div className="mt-8 grid grid-cols-2 gap-4">
+                  {plan.features.map((f, fi) => (
+                    <div key={fi} className="flex items-center space-x-3 p-3 rounded-xl bg-white/5 border border-white/5">
+                      <span className="w-1.5 h-1.5 bg-red rounded-full" />
+                      <span className="text-white/60 text-[10px] font-black uppercase tracking-widest">{f}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Image Modal */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-navy/90 backdrop-blur-md p-4 animate-fadeIn"
-          onClick={() => setSelectedImage(null)}
-        >
-          <div className="relative max-w-5xl w-full max-h-[90vh] bg-white rounded-xl shadow-2xl overflow-hidden animate-scaleIn flex items-center justify-center" onClick={e => e.stopPropagation()}>
-            <button
-              onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 bg-white/10 hover:bg-red/80 text-navy hover:text-white rounded-full p-2 transition-all z-10"
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-navy/95 backdrop-blur-xl p-4 md:p-12"
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.div 
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+              className="relative max-w-7xl w-full h-full bg-navy rounded-[3rem] shadow-2xl p-8 border border-white/10 flex items-center justify-center" 
+              onClick={e => e.stopPropagation()}
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-            <img
-              src={selectedImage}
-              alt="Floor plan full view"
-              className="w-auto h-auto max-w-full max-h-[90vh] object-contain"
-            />
-          </div>
-        </div>
-      )}
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-8 right-8 w-12 h-12 bg-white/10 hover:bg-red text-white rounded-full flex items-center justify-center transition-all z-[110]"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+              </button>
+              <img
+                src={selectedImage}
+                alt="Floor plan full view"
+                className="w-full h-full object-contain"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
 
 export default TechnicalPage;
+

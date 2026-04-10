@@ -6,6 +6,7 @@ import LandingPage from './pages/LandingPage';
 import PortfolioPage from './pages/PortfolioPage';
 import TechnicalPage from './pages/TechnicalPage';
 import ContactPage from './pages/ContactPage';
+import BlogPage from './pages/BlogPage';
 import { Page } from './types';
 
 const App: React.FC = () => {
@@ -31,13 +32,15 @@ const App: React.FC = () => {
         return <TechnicalPage />;
       case 'contact':
         return <ContactPage />;
+      case 'blog':
+        return <BlogPage />;
       default:
         return <LandingPage setCurrentPage={setCurrentPage} />;
     }
   };
 
   return (
-    <div className="min-h-screen flex flex-col font-sans transition-colors duration-500">
+    <div className="min-h-screen flex flex-col font-sans transition-colors duration-500 relative">
       <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
 
       <main className="flex-grow">
