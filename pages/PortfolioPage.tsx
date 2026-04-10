@@ -1,13 +1,14 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Project } from '../types';
+import { Project, Page } from '../types';
 import { PROJECTS } from '../constants';
 
 interface PortfolioPageProps {
   statusFilter?: 'Current' | 'Upcoming' | 'Completed';
+  setCurrentPage: (page: Page) => void;
 }
 
-const PortfolioPage: React.FC<PortfolioPageProps> = ({ statusFilter }) => {
+const PortfolioPage: React.FC<PortfolioPageProps> = ({ statusFilter, setCurrentPage }) => {
   const portfolioProjects = PROJECTS
     .filter(p => !statusFilter || p.status === statusFilter)
     .sort((a, b) => (a.id - b.id)); 
@@ -104,15 +105,14 @@ const PortfolioPage: React.FC<PortfolioPageProps> = ({ statusFilter }) => {
                   </div>
 
                   {project.brochure && (
-                    <motion.a
-                      href={project.brochure}
-                      download
+                    <motion.button
+                      onClick={() => setCurrentPage('brochure')}
                       whileHover={{ scale: 1.1, backgroundColor: '#f7d060', color: '#0a0c1a' }}
                       whileTap={{ scale: 0.95 }}
-                      className="bg-white/5 border border-white/10 px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest text-white transition-all shadow-xl"
+                      className="bg-white/5 border border-white/10 px-6 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest text-white transition-all shadow-xl cursor-pointer"
                     >
-                      Download Brochure
-                    </motion.a>
+                      View Brochure
+                    </motion.button>
                   )}
                 </div>
               </div>

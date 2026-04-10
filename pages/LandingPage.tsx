@@ -371,15 +371,14 @@ const ProjectCard: React.FC<{ project: Project; setCurrentPage: (page: Page) => 
             </motion.button>
 
             {project.brochure && (
-              <motion.a
-                href={project.brochure}
-                download
+              <motion.button
+                onClick={() => setCurrentPage('brochure')}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-white/10 hover:bg-gold hover:text-navy px-5 py-3 md:px-4 md:py-2 rounded-xl text-xs md:text-[10px] font-black uppercase tracking-widest transition-all"
+                className="bg-white/10 hover:bg-gold hover:text-navy px-5 py-3 md:px-4 md:py-2 rounded-xl text-xs md:text-[10px] font-black uppercase tracking-widest transition-all cursor-pointer"
               >
-                Brochure
-              </motion.a>
+                Explore Brochure
+              </motion.button>
             )}
           </div>
           <div className="flex -space-x-3">

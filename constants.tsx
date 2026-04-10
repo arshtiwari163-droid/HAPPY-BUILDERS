@@ -11,7 +11,7 @@ export const PROJECTS: Project[] = [
     expectedDate: "2026",
     image: "/Happy_Kuteer.jpg",
     description: "Premium residential development. Project 4 - Happy Kuteer (2026).",
-    brochure: "/happy_kuteer.pdf"
+    brochure: "/brochure.pdf"
   },
   {
     id: 3,

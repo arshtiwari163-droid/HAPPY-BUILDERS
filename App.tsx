@@ -7,6 +7,7 @@ import PortfolioPage from './pages/PortfolioPage';
 import TechnicalPage from './pages/TechnicalPage';
 import ContactPage from './pages/ContactPage';
 import BlogPage from './pages/BlogPage';
+import BrochurePage from './pages/BrochurePage';
 import { Page } from './types';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -22,19 +23,21 @@ const App: React.FC = () => {
       case 'home':
         return <LandingPage setCurrentPage={setCurrentPage} />;
       case 'portfolio':
-        return <PortfolioPage />;
+        return <PortfolioPage setCurrentPage={setCurrentPage} />;
       case 'ongoing':
-        return <PortfolioPage statusFilter="Current" />;
+        return <PortfolioPage statusFilter="Current" setCurrentPage={setCurrentPage} />;
       case 'upcoming':
-        return <PortfolioPage statusFilter="Upcoming" />;
+        return <PortfolioPage statusFilter="Upcoming" setCurrentPage={setCurrentPage} />;
       case 'completed':
-        return <PortfolioPage statusFilter="Completed" />;
+        return <PortfolioPage statusFilter="Completed" setCurrentPage={setCurrentPage} />;
       case 'technical':
         return <TechnicalPage />;
       case 'contact':
         return <ContactPage />;
       case 'blog':
         return <BlogPage />;
+      case 'brochure':
+        return <BrochurePage />;
       default:
         return <LandingPage setCurrentPage={setCurrentPage} />;
     }

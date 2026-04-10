@@ -1,5 +1,5 @@
 
-export type Page = 'home' | 'portfolio' | 'technical' | 'contact' | 'ongoing' | 'upcoming' | 'completed' | 'blog';
+export type Page = 'home' | 'portfolio' | 'technical' | 'contact' | 'ongoing' | 'upcoming' | 'completed' | 'blog' | 'brochure';
 
 export interface Project {
   id: number;
