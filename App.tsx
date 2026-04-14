@@ -25,10 +25,7 @@ const App: React.FC = () => {
           <h1 className="text-4xl md:text-6xl font-serif font-bold text-white tracking-tight leading-tight">
              Access <span className="text-red text-glow-red">Restricted</span>
           </h1>
-          <div className="h-0.5 w-16 bg-red/50 mx-auto"></div>
-          <p className="text-lg md:text-xl text-gray-400 font-sans font-medium tracking-[0.2em] uppercase mt-8">
-            payment panding by owner
-          </p>
+
         </div>
 
         {/* Detailed Info */}
